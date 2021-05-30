@@ -20,3 +20,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+client/auth_config.json
+client/node_modules
+server/node_modules
