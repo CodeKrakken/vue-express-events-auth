@@ -1,8 +1,10 @@
 <template>
 <div id="app">
-  <Wallet :wallet="data.wallet" :currentPrice="data.currentPriceObject.price" />
-  <Orders :orders="trimOrders(data.orders, data.currentPriceObject.price)" :currentPrice="data.currentPriceObject.price" />
-  <Market :currentPriceObject="data.currentPriceObject" :priceHistory="data.priceHistoryArray" :lastPrice="lastPrice" />
+  <div id="grid">
+    <Wallet :wallet="data.wallet" :currentPrice="data.currentPriceObject.price" />
+    <Market :currentPriceObject="data.currentPriceObject" :priceHistory="data.priceHistoryArray" :lastPrice="lastPrice" />
+    <Orders :orders="trimOrders(data.orders, data.currentPriceObject.price)" :currentPrice="data.currentPriceObject.price" />
+  </div>
 </div>
 </template>
 
@@ -78,18 +80,28 @@ export default {
 <style>
 
 #app {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 1vw;
-  width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 1vw;
   font-size: 100%;
   text-align: center;
-  border: thin white dashed
+  position: absolute;
+  top: 10vh;
+  bottom: 10vh;
+  left: 10vh;
+  right: 10vh
 }
+
 </style>
