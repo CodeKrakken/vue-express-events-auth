@@ -76,5 +76,20 @@ export default {
 </script>
 
 <style>
-  
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 1vw;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 100%;
+  text-align: center;
+  border: thin white dashed
+}
 </style>
