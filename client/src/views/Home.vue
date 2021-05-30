@@ -32,8 +32,8 @@ export default {
         this.lastPrice = this.data.currentPriceObject.price
       }
       this.$set(this, "data", data);
+      this.data.currentPriceObject.price = parseFloat(this.data.currentPriceObject.price)
       this.firstRun = false
-      console.log(data)
     },
     trimOrders(orders, currentPrice) {
       let returnObject = {
