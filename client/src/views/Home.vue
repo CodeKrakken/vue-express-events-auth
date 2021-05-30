@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <Wallet :wallet="data.wallet" :currentPrice="data.currentPriceObject.price" />
+  <Orders :orders="trimOrders(data.orders, data.currentPriceObject.price)" :currentPrice="data.currentPriceObject.price" />
   <Market :currentPriceObject="data.currentPriceObject" :priceHistory="data.priceHistoryArray" :lastPrice="lastPrice" />
 </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 
 import Wallet from '@/views/Wallet.vue'
+import Orders from '@/views/Orders.vue'
 import Market from '@/views/Market.vue'
 import EventService from '@/services/EventService.js'
 
@@ -26,6 +28,7 @@ export default {
   },
   components: {
     Wallet,
+    Orders,
     Market
   },
   methods: {
