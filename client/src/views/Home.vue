@@ -1,12 +1,14 @@
 <template>
 <div id="app">
   <Wallet :wallet="data.wallet" :currentPrice="data.currentPriceObject.price" />
+  <Market :currentPriceObject="data.currentPriceObject" :priceHistory="data.priceHistoryArray" :lastPrice="lastPrice" />
 </div>
 </template>
 
 <script>
 
 import Wallet from '@/views/Wallet.vue'
+import Market from '@/views/Market.vue'
 import EventService from '@/services/EventService.js'
 
 export default {
@@ -21,6 +23,10 @@ export default {
   },
   created() {
     this.timer = setInterval(this.getTick, 2000)
+  },
+  components: {
+    Wallet,
+    Market
   },
   methods: {
     async getTick () {
@@ -62,9 +68,6 @@ export default {
     n(n, d) {
       return Number.parseFloat(n).toFixed(d);
     }
-  },
-  components: {
-    Wallet
   }
 }
 </script>
